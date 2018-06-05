@@ -14,6 +14,7 @@ import fabricaOrcos.Orcos;
 public abstract class AbstractFactory {
     //Creo una de las fábricas, para el caso la que me genera orcos, así debo hacer con las de GuerrerosHumanos y Esqueletos.
     public abstract Orcos getOrco(String tipo);
+    //  ACÁ DEBERÍAA MANDAR LA OPCIÓN QUE ESCOGIÓ EL JUGADOR n, PARA CON LA QUE JUGARÁ
     //Segunda opción de juego, fábrica de Humanos
     //public abstract GuerrerosHumanos getGueHuman(String tipo);
     

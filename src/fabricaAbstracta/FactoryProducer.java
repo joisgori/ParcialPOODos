@@ -14,7 +14,7 @@ import fabricaOrcos.FactoryOrcos;
 public class FactoryProducer {
     public static AbstractFactory getFactory(String tipo){
         switch(tipo){
-            case "RazaOrco":
+            case "RazaOrco":    
                 return new FactoryOrcos(); //retorno el objeto de la fábrica de orcos que permitirá luego escoger entre la milica de orcos o el super soldado.
         }
         return null;
