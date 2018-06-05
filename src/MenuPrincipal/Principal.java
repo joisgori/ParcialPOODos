@@ -4,6 +4,8 @@
 package MenuPrincipal;
 import fabricaAbstracta.AbstractFactory;
 import fabricaAbstracta.FactoryProducer;
+import fabricaEsqueletos.Esqueletos;
+import fabricaEsqueletos.OpcionesParaJugadorDeEsqueletos;
 import fabricaOrcos.Orcos;
 import java.util.Scanner;
 
@@ -20,12 +22,14 @@ public class Principal {
         System.out.println("Bienvenido al juego JOSUE'S WORLD");
         AbstractFactory f;
         //---------------------------------- atributos opcion scanner
-        String SeleccionRaza;
+        String SeleccionRaza, SeleccionConstruccion;
         Scanner SR = new Scanner(System.in);            //Puedo usar método equalsignorecase para no importa si lo escribió 
         //------------------------
         System.out.println("Ingrese el nombre la raza con la raza con la que desea jugar: ");
         SeleccionRaza = SR.nextLine();
         f = FactoryProducer.getFactory(SeleccionRaza); //Se debe escribir RazaOrco pa ke fururle
+        
+        //A partir de acá debo pedir qué quiere edificar cada raza...
         Orcos o1 = f.getOrco("orcoNormal");
         Orcos o2 = f.getOrco("superTroll");
         
@@ -34,6 +38,22 @@ public class Principal {
         o2.atacar();
         */
         o1.menuJuego();
+        
+        //PARA LA SELECCION DE ESQUELETO
+        System.out.println("Jugador 2, por favor coloque el nombre de la raza que desea utilizar");
+        SeleccionRaza = SR.nextLine();
+        f = FactoryProducer.getFactory(SeleccionRaza);
+        //Debo pedir acá la opción de lo que desea construir...
+        System.out.println("SELECCIONÓ LA RAZA ESQUELETO PARA JUGAR");
+        System.out.println("Escoja qué desea hacer [crear edifico, crear milicia, vehículo aero, terrestre, super soldado etc...]");
+        Scanner SC = new Scanner(System.in);
+        SeleccionConstruccion = SC.nextLine();
+        OpcionesParaJugadorDeEsqueletos oe1 = f.getOpcionMenuRazaEsqueleto(SeleccionConstruccion);
+        /*if(SeleccionConstruccion == "Edificacion recurso 1"){
+            oe1.crearEdificaciones();
+        } else if(SeleccionConstruccion == "Milicia Esqueletos"){
+            oe1.atacar();
+        }   ESTO NO ESTÁ FUNCIONANDO, PERO DEBERÍA OFRECERME LA OPCIÓN DE MENÚ A PARTIR DE LO QUE SELECCIONÉ, DEBO EDTIAR ESTO*/
     }
     
 }

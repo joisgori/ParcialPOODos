@@ -5,7 +5,9 @@
  */
 package fabricaAbstracta;
 
+import fabricaEsqueletos.Esqueletos;
 import fabricaOrcos.Orcos;
+import fabricaEsqueletos.OpcionesParaJugadorDeEsqueletos;
 
 /**
  *
@@ -18,5 +20,7 @@ public abstract class AbstractFactory {
     //Segunda opción de juego, fábrica de Humanos
     //public abstract GuerrerosHumanos getGueHuman(String tipo);
     
+    //AHORA SE VIENE LO CHIDO
+    public abstract OpcionesParaJugadorDeEsqueletos getOpcionMenuRazaEsqueleto(String tipo); //Acá mando lo que desea crear...    
     
 }

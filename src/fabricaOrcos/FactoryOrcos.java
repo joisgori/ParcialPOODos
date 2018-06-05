@@ -6,6 +6,7 @@
 package fabricaOrcos;
 
 import fabricaAbstracta.AbstractFactory;
+import fabricaEsqueletos.OpcionesParaJugadorDeEsqueletos;
 
 /**
  *
@@ -24,6 +25,12 @@ public class FactoryOrcos extends AbstractFactory{
                 //return new TipoDeOrco     y que acá imprima si es una milicia normal o es un supersoldado, dentro de esa clase deberá existir la vida de los mismos y el daño que
                 //harán...
         }
+        return null;
+    }
+
+    @Override
+    public OpcionesParaJugadorDeEsqueletos getOpcionMenuRazaEsqueleto(String tipo) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         return null;
     }
     
