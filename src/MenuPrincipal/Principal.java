@@ -20,6 +20,7 @@ public class Principal {
     //Método main para la ejecución de mi videojuego.
     public static void main(String[] args) {
         System.out.println("Bienvenido al juego JOSUE'S WORLD");
+        //FuncionesPrincipales.hola();
         AbstractFactory f;
         //---------------------------------- atributos opcion scanner
         String SeleccionRaza, SeleccionConstruccion;
