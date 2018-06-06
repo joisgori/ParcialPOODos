@@ -5,10 +5,30 @@
  */
 package SoldaGHFactory;
 
+import EdifGHFactory.Edificaciones;
+import VehGHFactory.Vehiculos;
+import fabricaAbstractaGH.AbstractFactoryGH;
+
 /**
  *
  * @author Josué González <00034715@uca.edu.sv>
  */
-public class SoldadoGHFactory {
+public class SoldadoGHFactory extends AbstractFactoryGH {
+
+    @Override
+    public Edificaciones getEdificacion(String tipo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Vehiculos getVehiculo(String tipo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Soldados getSoldado(String tipo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     
 }

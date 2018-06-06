@@ -6,6 +6,7 @@
 package fabricaAbstractaGH;
 
 import EdifGHFactory.Edificaciones;
+import SoldaGHFactory.Soldados;
 import VehGHFactory.Vehiculos;
 
 /**
@@ -18,5 +19,5 @@ public abstract class AbstractFactoryGH {
     
     public abstract Vehiculos getVehiculo(String tipo);
     
-    //public abstract Soldado getSoldado(String tipo);
+    public abstract Soldados getSoldado(String tipo);
 }

@@ -10,5 +10,7 @@ package SoldaGHFactory;
  * @author Josué González <00034715@uca.edu.sv>
  */
 public interface Soldados {
-    
+
+    public void atacar();
+    public void defender();
 }

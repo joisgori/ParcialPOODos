@@ -6,6 +6,7 @@
 package VehGHFactory;
 
 import EdifGHFactory.Edificaciones;
+import SoldaGHFactory.Soldados;
 import fabricaAbstractaGH.AbstractFactoryGH;
 
 /**
@@ -21,6 +22,11 @@ public class VehiculoGHFactory extends AbstractFactoryGH {
 
     @Override
     public Vehiculos getVehiculo(String tipo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Soldados getSoldado(String tipo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

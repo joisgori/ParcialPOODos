@@ -2,8 +2,13 @@
  * Acá colocaré el método main para la ejecución del programa/juego del siguiente proyecto - parcial dos ciclo 01/2018
  */
 package MenuPrincipal;
+//Estas importaciones mandan a traer mis funciones y métodos del menú principal
+import static MenuPrincipal.FuncionesPrincipales.ingresoUsuarios;
+import static MenuPrincipal.FuncionesPrincipales.instrucciones;
+//Acá las abstract factory que pediré por raza... aunque creo que las quitaré puesto que serán llamadas en la clase "FuncionesPrincipales"
 import fabricaAbstracta.AbstractFactory;
 import fabricaAbstracta.FactoryProducer;
+//import fabricaAbstractaGH.AbstractFactoryGH;
 import fabricaEsqueletos.Esqueletos;
 import fabricaEsqueletos.OpcionesParaJugadorDeEsqueletos;
 import fabricaOrcos.Orcos;
@@ -55,6 +60,14 @@ public class Principal {
         } else if(SeleccionConstruccion == "Milicia Esqueletos"){
             oe1.atacar();
         }   ESTO NO ESTÁ FUNCIONANDO, PERO DEBERÍA OFRECERME LA OPCIÓN DE MENÚ A PARTIR DE LO QUE SELECCIONÉ, DEBO EDTIAR ESTO*/
+        
+        
+        
+        //*********************APARTIR DE ACÁ ESTÁ LA NUEVA FASE DE MI PARCIAL, PARCIAL 2.0********************************
+        //AbstractFactoryGH v2;
+        instrucciones();
+        ingresoUsuarios();
+        
     }
     
 }

@@ -5,6 +5,8 @@
  */
 package fabricaAbstractaGH;
 
+import EdifGHFactory.EdificacionGHFactory;
+
 /**
  *
  * @author Josué González <00034715@uca.edu.sv>
@@ -14,7 +16,7 @@ public class FactoryProducerGH {
         switch(tipo)
         {
             case "Edificaciones":
-                return null; //return new Edificacion();
+                return new EdificacionGHFactory(); //retornará el valor seleccionado de la edificación pedida...
             /*case "Vehiculos":
                 return null;
             case "Soldados":
