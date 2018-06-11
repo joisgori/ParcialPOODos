@@ -12,7 +12,7 @@ import java.util.Random;
  * @author josue
  */
 public class HumanoGigante implements Soldados {
-    int Salud = 150; //creo que no debería ser abstract y se deberá implementar así, a dif de atacar...
+    private int Salud = 150; //creo que no debería ser abstract y se deberá implementar así, a dif de atacar...
     private String nombre;
     private Random cualquiera = new Random(System.nanoTime());
     
@@ -25,6 +25,15 @@ public class HumanoGigante implements Soldados {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    public int getSalud() {
+        return Salud;
+    }
+
+    public void setSalud(int Salud) {
+        this.Salud = Salud;
+    }
+    
     //****Aunque no estoy seguro si esos deberían ser abstracts también, luego veo...
 
     @Override
@@ -39,6 +48,11 @@ public class HumanoGigante implements Soldados {
     public void Danio(int danioOponente) {
         //Es decir que el valor que reciba se lo restará a la componente de salud...
         this.Salud -= danioOponente;
+    }
+
+    @Override
+    public int Salud(int danioOponentes) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -6,6 +6,10 @@ package MenuPrincipal;
 
 import static MenuPrincipal.FuncionesPrincipales.ingresoUsuarios;
 import static MenuPrincipal.FuncionesPrincipales.instrucciones;
+import SoldaGHFactory.Milicia;
+import SoldaGHFactory.Soldados;
+import fabricaAbstractaGH.AbstractFactoryGH;
+import fabricaAbstractaGH.FactoryProducerGH;
 //Acá las abstract factory que pediré por raza... aunque creo que las quitaré puesto que serán llamadas en la clase "FuncionesPrincipales"
 //import fabricaAbstractaGH.AbstractFactoryGH;
 import java.util.Scanner;
@@ -60,7 +64,7 @@ public class Principal {
             oe1.atacar();
         }   ESTO NO ESTÁ FUNCIONANDO, PERO DEBERÍA OFRECERME LA OPCIÓN DE MENÚ A PARTIR DE LO QUE SELECCIONÉ, DEBO EDTIAR ESTO*/
         //*********************APARTIR DE ACÁ ESTÁ LA NUEVA FASE DE MI PARCIAL, PARCIAL 2.0********************************
-        //AbstractFactoryGH v2;
+        AbstractFactoryGH v2, vEnemigos;
         int opcionSubMenuTurnos = 12;
         Scanner TJ = new Scanner(System.in); //Turno Jugador
         instrucciones();
@@ -83,10 +87,19 @@ public class Principal {
                         break;
                     case 2:
                         System.out.println("Ataca según lo planetado antes");
+                        System.out.println("Selecciono a quien atacar, quemadamente acá escogeré de una vez a la otra milica...");
+                        v2 = FactoryProducerGH.getFactoryGH("Soldados");
+                        vEnemigos = FactoryProducerGH.getFactoryGH("Soldados");
+                        vEnemigos.getSoldado("Milicia").Danio(v2.getSoldado("Milicia").Atacar()); //ACÁ LE MANDO EL DAÑO AL ENEMIGO...
                         break;
                     case 3:
                         System.out.println("Se sale del buckle y que me tire al segund sub while");
                         break;
+                        //*************SIN DUDA ESTE CASE 4 LO OBVIARÉ PARA EFECTOS PRÁCTICOS PORQUE AUN NO METO NADA EN UN ARRAY O ARRAYLIST;+
+                    case 4: //TEMPORAL, SOLO PARA PROBAR OBJETO DE MILICIA.
+                        System.out.println("Creo el objeto mi milicia humanos...");
+                        //v2 = FactoryProducerGH.getFactoryGH("Soldados");
+                        //v2.getSoldado("Milicia"); 
                     default:
                         System.out.println("Escoja opción válida");
                         break;
@@ -108,6 +121,11 @@ public class Principal {
                         break;
                     case 2:
                         System.out.println("Ataca según lo planetado antes");
+                        System.out.println("Selecciono a quien atacar, quemadamente acá escogeré de una vez a la otra milica...");
+                        vEnemigos = FactoryProducerGH.getFactoryGH("Soldados");
+                        v2 = FactoryProducerGH.getFactoryGH("Soldados");
+                        v2.getSoldado("Milicia").Danio(vEnemigos.getSoldado("Milicia").Atacar()); //ACÁ LE MANDO EL DAÑO AL ENEMIGO...
+                       
                         break;
                     case 3:
                         System.out.println("Se sale del buckle y que me tire al segund sub while");
@@ -121,10 +139,13 @@ public class Principal {
             
             opcionSubMenuTurnos = 12;
             //TJ.nextInt();
+            
+            v2 = FactoryProducerGH.getFactoryGH("Soldados");
 
         } while (false); //Acá deberá ir la vida total de las edificaciones que ambos tienen con una condición AND (&&) para que si falla uno, se rompe el buckle...
         
         //ahorita quizá vaya a probar con la vida nada más de los militares, cambiaré la condición del while...
+        //Vale madres, probé con esto y no funcionó... v2.getSoldado("Milicia").Salud(opcionSubMenuTurnos) != 0 [DE CONDICIÓN...]
 
     }
 

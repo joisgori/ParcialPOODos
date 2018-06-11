@@ -7,6 +7,7 @@ package fabricaAbstractaOrcos;
 
 import EdifOFactory.EdificacionesOFactory;
 import SoldaOFactory.SoldadoOFactory;
+import VehOFactory.VehiculoOFactory;
 
 /**
  *
@@ -19,7 +20,7 @@ public class FactoryProducerOrcos {
             case "Edificaciones":
                 return new EdificacionesOFactory(); //retornará el valor seleccionado de la edificación pedida...
             case "Vehiculos":
-                return null;
+                return new VehiculoOFactory();
             case "Soldados":
                 return new SoldadoOFactory(); //retornará una nueva opcion de qué tipo de soldado utilizar.
             

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package SoldaGHFactory;
+
 import java.util.Random;
 
 /**
@@ -11,7 +12,8 @@ import java.util.Random;
  * @author josue
  */
 public class Milicia implements Soldados {
-    int Salud = 75; //creo que no debería ser abstract y se deberá implementar así, a dif de atacar...
+
+    private int Salud = 75; //creo que no debería ser abstract y se deberá implementar así, a dif de atacar...
     private String nombre;
     private Random cualquiera = new Random(System.nanoTime());
 
@@ -23,9 +25,17 @@ public class Milicia implements Soldados {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    //Abstract methods;
 
+    public int getSalud() {
+        return Salud;
+    }
+
+    public void setSalud(int Salud) {
+        
+        this.Salud -= Salud;
+    }
+
+    //Abstract methods;
     @Override
     public int Atacar() { //DEBO TENER EN CUENTA QUE SOLO SE PUEDE HACER UN ATAQUE POR TURNO, ENTONCES INMEDIATAMENTE ESTO ME RETORNE UN NÚMERO (SEA EL QUE SEA) QUE PASE AL SIGUIENTE TURNO...
         //Haré con numeros aleatorios para que ataque o falle el ataque.
@@ -35,10 +45,16 @@ public class Milicia implements Soldados {
     }
 
     @Override
+    public int Salud(int danioOponente) {
+        setSalud(danioOponente);
+        return getSalud();
+    }
+
+    @Override
     public void Danio(int danioOponente) {
         //Es decir que el valor que reciba se lo restará a la componente de salud...
-        this.Salud -= danioOponente;
+        Salud(danioOponente);
+        //this.Salud -= danioOponente;
     }
-    
-    
+
 }
