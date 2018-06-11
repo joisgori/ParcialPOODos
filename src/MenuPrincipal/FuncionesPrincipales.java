@@ -132,5 +132,8 @@ public class FuncionesPrincipales {
 
     public static void TurnoJugador(int J1, int J2) {
         //Recibiría si es jugador uno o dos y se ejecutará; podría hacer que si es par, sea jugador 2, si es impar el uno y se pedirán sus respectivas funciones con los datos correspondientes;
+        //Sí es el jugador uno, mando a llamar un sub menu para que escoja que quiere... en orden, crear ed... luego atacar etc...
+        
+        //Si es jugador dos que se proporcionen las mismas opciones dentro de un while, y solo hasta que se escoja o atacar o pasar de turno que retorne algo esas funciones y quiebren el sub while dentro de un do while..
     }
 }

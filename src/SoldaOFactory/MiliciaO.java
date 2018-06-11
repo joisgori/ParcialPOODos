@@ -12,6 +12,8 @@ import java.util.Random;
  * @author josue
  */
 public class MiliciaO implements SoldadosO {
+    int Salud = 75; //creo que no debería ser abstract y se deberá implementar así, a dif de atacar...
+    private String nombre;
     private Random cualquiera = new Random(System.nanoTime());
 
     @Override
@@ -24,7 +26,8 @@ public class MiliciaO implements SoldadosO {
 
     @Override
     public void Danio(int danioOponente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Es decir que el valor que reciba se lo restará a la componente de salud...
+        this.Salud -= danioOponente;
     }
     
 }
