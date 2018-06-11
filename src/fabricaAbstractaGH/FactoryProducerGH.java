@@ -6,6 +6,7 @@
 package fabricaAbstractaGH;
 
 import EdifGHFactory.EdificacionGHFactory;
+import SoldaGHFactory.SoldadoGHFactory;
 
 /**
  *
@@ -17,11 +18,11 @@ public class FactoryProducerGH {
         {
             case "Edificaciones":
                 return new EdificacionGHFactory(); //retornará el valor seleccionado de la edificación pedida...
-            /*case "Vehiculos":
+            case "Vehiculos":
                 return null;
             case "Soldados":
-                return null;
-            */
+                return new SoldadoGHFactory(); //retornará una nueva opcion de qué tipo de soldado utilizar.
+            
         }
         return null;
         

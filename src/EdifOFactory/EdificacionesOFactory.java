@@ -3,27 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package EdifGHFactory;
-import SoldaGHFactory.Soldados;
-import VehGHFactory.Vehiculos;
-import fabricaAbstractaGH.AbstractFactoryGH;
+package EdifOFactory;
+
+import SoldaOFactory.SoldadosO;
+import fabricaAbstractaOrcos.AbstractFactoryOrcos;
 
 /**
  *
- * @author Josué González <00034715@uca.edu.sv>
+ * @author josue
  */
-public class EdificacionGHFactory extends AbstractFactoryGH {   
+public class EdificacionesOFactory extends AbstractFactoryOrcos {
 
     @Override
-    public Edificaciones getEdificacion(String tipo) {
-        switch(tipo){
+    public EdificacionesO getEdificacion(String tipo) {
+        switch (tipo) {
             case "Edif recurso 1":
                 return null;
             case "Edif recurso 2":
                 return null;
             case "Edif recurso 3":
                 System.out.println("hskfjsdf");
-                return new EdifSeda(); //generará el recurso automáticamente...
+                return null; //generará el recurso automáticamente...
             case "Edif entrenamiento soldados": //**** luego deberé amarrar que si creo unos soldados no pueden existir sin esta edif...
                 return null;
             case "Edif construcción vehículos aereos":
@@ -35,14 +35,7 @@ public class EdificacionGHFactory extends AbstractFactoryGH {
     }
 
     @Override
-    public Vehiculos getVehiculo(String tipo) {
+    public SoldadosO getSoldado(String tipo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public Soldados getSoldado(String tipo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
 }

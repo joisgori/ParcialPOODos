@@ -10,7 +10,7 @@ package EdifGHFactory;
  * @author Josué González <00034715@uca.edu.sv>
  */
 public class EdifSeda implements Edificaciones{
-    int TotalRecurso = 2500, Temporal = 2500;
+    int TotalRecurso = 2500, Temporal = 2500, vidaEd = 10;
 
     @Override
     public int GenerarRecurso() {

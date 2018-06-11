@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fabricaEsqueletos;
+package SoldaOFactory;
 
 /**
  *
  * @author josue
  */
-public interface OpcionesParaJugadorDeEsqueletos {
-    public void menuJuego();
-    public void crearEdificaciones();
-    public void atacar();
-
+public interface SoldadosO {
+    public int Atacar(); //Debe devolver un entero con el daño que se haga...
+    public void Danio(int danioOponente);
+    
 }

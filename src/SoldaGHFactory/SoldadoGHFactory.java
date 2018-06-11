@@ -27,7 +27,13 @@ public class SoldadoGHFactory extends AbstractFactoryGH {
 
     @Override
     public Soldados getSoldado(String tipo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        switch(tipo){
+            case "Milicia":
+                return new Milicia();
+            case "Humano Gigante": //De este solo podrá haber uno en batalla **DEBERÉ HACER TAL VALIDACIÓN
+                return new HumanoGigante();
+        }
+        return null;
     }
     
     

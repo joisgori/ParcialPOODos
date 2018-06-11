@@ -10,7 +10,8 @@ package SoldaGHFactory;
  * @author Josué González <00034715@uca.edu.sv>
  */
 public interface Soldados {
-
-    public void atacar();
-    public void defender();
+    //public int Salud(int salud);
+    public int Atacar(); //Debe devolver un entero con el daño que se haga...
+    public void Danio(int danioOponente);
+    
 }
