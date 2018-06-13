@@ -22,7 +22,13 @@ public class VehiculoGHFactory extends AbstractFactoryGH {
 
     @Override
     public Vehiculos getVehiculo(String tipo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         switch(tipo){
+            case "Terrestres":
+                return new JabaliesGigantes() ;
+            case "Aéreos": //De este solo podrá haber uno en batalla **DEBERÉ HACER TAL VALIDACIÓN
+                return new AguilasGigantes();
+        }
+        return null;
     }
 
     @Override

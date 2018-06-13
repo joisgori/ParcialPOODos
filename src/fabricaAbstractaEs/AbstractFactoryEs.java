@@ -11,7 +11,7 @@ import VehEsFactory.VehiculosEs;
 
 /**
  *
- * @author josue
+ * @author Josué González <00034715@uca.edu.sv>
  */
 public abstract class AbstractFactoryEs {
     //Esto me va a permitir escoger el tipo de edificación que el usario desea...

@@ -10,7 +10,7 @@ import SoldaOFactory.SoldadosO;
 
 /**
  *
- * @author josue
+ * @author Josué González <00034715@uca.edu.sv>
  */
 public abstract class AbstractFactoryOrcos {
     //Esto me va a permitir escoger el tipo de edificación que el usario desea...

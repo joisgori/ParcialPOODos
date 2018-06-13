@@ -32,7 +32,7 @@ public class FuncionesPrincipales {
         int a = 1, opcionRaza, opcionMenuRaza, Jug1 = 0, Jug2 = 0;
         Scanner SR = new Scanner(System.in);
         AbstractFactoryGH v2;
-        
+
         Edificaciones s = new EdifSeda();
 
         while (a != 3) {
@@ -48,11 +48,11 @@ public class FuncionesPrincipales {
             if (opcionRaza == 1) {
                 muestraDatosUsuario(nombre, "Raza Orcos");
                 //System.out.println("Esto mandará a llamar la factory de esta raza y blabla");
-                CentroMandoGH InicioGH = new CentroMandoGH();
+                CentroMandoOrcos InicioOrcos = new CentroMandoOrcos();
                 SR.nextLine(); //Soluciona el problema de limpiar el buffer
                 //Dispongo tando de \n (salto de línea) como de la creación de tabs \t ...
-                System.out.println("Sus recursos iniciales son los siguientes:\n" +"Fibra_Seda: "+ InicioGH.getFibra_Seda()+"\tPlata: "+ InicioGH.getPlata()+"\tRoble: "+ InicioGH.getRoble());
-                
+                System.out.println("Sus recursos iniciales son los siguientes:\n" + "Fibra_Seda: " + InicioOrcos + "\tPlata: " + InicioOrcos + "\tRoble: " + InicioOrcos);
+
                 if (a == 1) {
                     Jug1 = 3;
                 } else {
@@ -64,11 +64,11 @@ public class FuncionesPrincipales {
             } else if (opcionRaza == 2) {
                 muestraDatosUsuario(nombre, "Raza Guerreros Humanos");
                 //System.out.println("Esto mandará a llamar la factory de esta raza para proporcionar las opciones que desea ejecutar");
-                CentroMandoOrcos InicioOrcos = new CentroMandoOrcos();
+                CentroMandoGH InicioGH = new CentroMandoGH();
                 SR.nextLine(); //Soluciona el problema de limpiar el buffer
                 //Dispongo tando de \n (salto de línea) como de la creación de tabs \t ...
-                System.out.println("Sus recursos iniciales son los siguientes:\n" +"Fibra_Seda: "+ InicioOrcos+"\tPlata: "+ InicioOrcos+"\tRoble: "+ InicioOrcos);
-                SR.nextLine(); //Soluciona el problema de limpiar el buffer
+                System.out.println("Sus recursos iniciales son los siguientes:\n" + "Fibra_Seda: " + InicioGH.getFibra_Seda() + "\tPlata: " + InicioGH.getPlata() + "\tRoble: " + InicioGH.getRoble());
+
                 /*CentroMandoGH g = new CentroMandoGH();
                 if(g.getPlata() >= 2500 && g.getRoble() >= 1000){
                     //int actual = g.getplata; coste = actual - 2500; g.setRecursoN(coste); 
@@ -94,7 +94,7 @@ public class FuncionesPrincipales {
                 CentroMandoEs InicioEs = new CentroMandoEs();
                 SR.nextLine(); //Soluciona el problema de limpiar el buffer
                 //Dispongo tando de \n (salto de línea) como de la creación de tabs \t ...
-                System.out.println("Sus recursos iniciales son los siguientes:\n" +"Fibra_Seda: "+ InicioEs+"\tPlata: "+ InicioEs+"\tRoble: "+ InicioEs);
+                System.out.println("Sus recursos iniciales son los siguientes:\n" + "Fibra_Seda: " + InicioEs + "\tPlata: " + InicioEs + "\tRoble: " + InicioEs);
                 SR.nextLine(); //Soluciona el problema de limpiar el buffer
 
                 //Líneas para los turnos...
@@ -121,42 +121,38 @@ public class FuncionesPrincipales {
         //Acá debería imprimir un array inicializado con los recursos acutales, y luego un arraylist con las edificaciones y cosas demás que posee, que debería ser 0... 
 
     }
-    
-    public static void InstanciacionEdificacionesSegunRazaJ1(String i){
-        switch(i){
-            
+
+    public static void InstanciacionEdificacionesSegunRazaJ1(String i) {
+        switch (i) {
+
         }
- 
+
     }
-    
-    public static void InstanciacionEdificacionesSegunRazaJ2(){
-        
+
+    public static void InstanciacionEdificacionesSegunRazaJ2() {
+
     }
 }
 
 //ESTAS OPCIONES SE DEBERÍAN EJECTUAR EN UNA FUNCIÓN APARTE.
-                /**
-                 * ************
-                 * System.out.println("Seleccione qué desea hacer:");
-                 * System.out.println("1.Crear 'Edificaciones'"); //Interno a
-                 * esto, edifcación de qué tipo? //VALIDAR QUE NI LA OPCIÓN DOS,
-                 * NI LA TRES SE PUEDAN EJECUTAR SIN ANTES TENER UNA EDIFICACIÓN
-                 * PARA ALMACENAR ESOS OBJETOS... System.out.println("2.Crear
-                 * 'Vehiculos'"); //Interno a esto, de qué tipo
-                 * System.out.println("3.Crear 'Soldados'"); //Interno a esto,
-                 * de qué tipo opcionMenuRaza = SR.nextInt(); if(opcionMenuRaza
-                 * == 1){ System.out.println("Ud ha seleccionado Edificaciones:
-                 * ");
-                 *
-                 * v2 = FactoryProducerGH.getFactoryGH("Edificaciones")
-                 * ;//.getEdificacion(nombreEdif); System.out.println("Indique
-                 * el nombre de la edificación que desea crear: \n***brindo las
-                 * opciones etc"); SR.nextLine(); nombreEdif = SR.nextLine();
-                 * //Para el caso debo meter "Edif recurso 3"
-                 * v2.getEdificacion(nombreEdif).GenerarRecurso(); //TENGO ESTE
-                 * CONFLICTO PARA GENERAR LAS COSAS... PREGUNTAR MAÑANA A
-                 * OBDULIO //ed1.GenerarRecurso(); //***************** LA OTRA
-                 * OPCIÓN ES QUE CUANDO EL USAARIO ESCOJA EL NOMBRE DE LA EDF A
-                 * CREAR, LE MANDO QUEMADO EL DATO DEL NOMBRE Y POR SUPUESTO EL
-                 * LLAMDO A FUNCION GENERARERCURSO... //ed1.GenerarRecurso();
-                 */
+/**
+ * ************
+ * System.out.println("Seleccione qué desea hacer:");
+ * System.out.println("1.Crear 'Edificaciones'"); //Interno a esto, edifcación
+ * de qué tipo? //VALIDAR QUE NI LA OPCIÓN DOS, NI LA TRES SE PUEDAN EJECUTAR
+ * SIN ANTES TENER UNA EDIFICACIÓN PARA ALMACENAR ESOS OBJETOS...
+ * System.out.println("2.Crear 'Vehiculos'"); //Interno a esto, de qué tipo
+ * System.out.println("3.Crear 'Soldados'"); //Interno a esto, de qué tipo
+ * opcionMenuRaza = SR.nextInt(); if(opcionMenuRaza == 1){
+ * System.out.println("Ud ha seleccionado Edificaciones: ");
+ *
+ * v2 = FactoryProducerGH.getFactoryGH("Edificaciones")
+ * ;//.getEdificacion(nombreEdif); System.out.println("Indique el nombre de la
+ * edificación que desea crear: \n***brindo las opciones etc"); SR.nextLine();
+ * nombreEdif = SR.nextLine(); //Para el caso debo meter "Edif recurso 3"
+ * v2.getEdificacion(nombreEdif).GenerarRecurso(); //TENGO ESTE CONFLICTO PARA
+ * GENERAR LAS COSAS... PREGUNTAR MAÑANA A OBDULIO //ed1.GenerarRecurso();
+ * //***************** LA OTRA OPCIÓN ES QUE CUANDO EL USAARIO ESCOJA EL NOMBRE
+ * DE LA EDF A CREAR, LE MANDO QUEMADO EL DATO DEL NOMBRE Y POR SUPUESTO EL
+ * LLAMDO A FUNCION GENERARERCURSO... //ed1.GenerarRecurso();
+ */

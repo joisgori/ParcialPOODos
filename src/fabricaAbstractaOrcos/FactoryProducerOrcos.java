@@ -11,7 +11,7 @@ import VehOFactory.VehiculoOFactory;
 
 /**
  *
- * @author josue
+ * @author Josué González <00034715@uca.edu.sv>
  */
 public class FactoryProducerOrcos {
     public static AbstractFactoryOrcos getFactoryO(String tipo){
