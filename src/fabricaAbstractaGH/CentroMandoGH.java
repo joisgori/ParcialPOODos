@@ -5,12 +5,55 @@
  */
 package fabricaAbstractaGH;
 
+import EdifGHFactory.EdifSeda;
+import EdifGHFactory.Edificaciones;
+import java.util.ArrayList;
+
 /**
  *
- * @author josue
+ * @author Josué González <00034715@uca.edu.sv>
  */
 public class CentroMandoGH {
-    //Voy a mandar a llamar esta clase que me imprimirá los artículos que tengo, la cantidad guardada en los distintos arreglos;
+
+    // recursos:
+    private int Fibra_Seda = 750, Plata = 2500, Roble = 1000;
+    private ArrayList<Edificaciones> EdificacionesGueHuman = new ArrayList<Edificaciones>(); //ACÁ ES DONDE PODRÍAN IR LAS DEL PATRÓN BUILDER...
+    //Métodos getter y setter del centro de mando para los recursos
+
+    public int getFibra_Seda() {
+        return Fibra_Seda;
+    }
+
+    public int getPlata() {
+        return Plata;
+    }
+
+    public int getRoble() {
+        return Roble;
+    }
+
+    public ArrayList<Edificaciones> getEdificacionesGueHuman() {
+        return EdificacionesGueHuman;
+    }
+
+    public void setFibra_Seda(int Fibra_Seda) {
+        this.Fibra_Seda = Fibra_Seda;
+    }
+
+    public void setPlata(int Plata) {
+        this.Plata = Plata;
+    }
+
+    public void setRoble(int Roble) {
+        this.Roble = Roble;
+    }
+
+    public void setEdificacionesGueHuman(ArrayList<Edificaciones> EdificacionesGueHuman) {
+        this.EdificacionesGueHuman = EdificacionesGueHuman;
+    }
+
     //Arreglos para edif de todo tipo más los recursos que se poseen y se van gastando o acumulando acá.
-    
+//A menos que la condición donde los arreglos de Edificaciones que se creen sea diferente de cero, los recursos aumentarán, caso contrario disminuirá hasta que se agoten y no puede hacer más
+    //Creando el arreglo para almacenar cosas de tipo edificacionesGH:
+    //EdificacionesGueHuman.add(s);
 }

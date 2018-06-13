@@ -5,9 +5,13 @@
  */
 package MenuPrincipal;
 
+import EdifGHFactory.EdifSeda;
 import EdifGHFactory.Edificaciones;
+import fabricaAbstractaEs.CentroMandoEs;
 import fabricaAbstractaGH.AbstractFactoryGH;
+import fabricaAbstractaGH.CentroMandoGH;
 import fabricaAbstractaGH.FactoryProducerGH;
+import fabricaAbstractaOrcos.CentroMandoOrcos;
 import java.util.Scanner;
 
 /**
@@ -28,6 +32,8 @@ public class FuncionesPrincipales {
         int a = 1, opcionRaza, opcionMenuRaza, Jug1 = 0, Jug2 = 0;
         Scanner SR = new Scanner(System.in);
         AbstractFactoryGH v2;
+        
+        Edificaciones s = new EdifSeda();
 
         while (a != 3) {
             //Ingreso de datos de usuario
@@ -41,10 +47,12 @@ public class FuncionesPrincipales {
 
             if (opcionRaza == 1) {
                 muestraDatosUsuario(nombre, "Raza Orcos");
-                System.out.println("Esto mandará a llamar la factory de esta raza y blabla");
-
+                //System.out.println("Esto mandará a llamar la factory de esta raza y blabla");
+                CentroMandoGH InicioGH = new CentroMandoGH();
                 SR.nextLine(); //Soluciona el problema de limpiar el buffer
-
+                //Dispongo tando de \n (salto de línea) como de la creación de tabs \t ...
+                System.out.println("Sus recursos iniciales son los siguientes:\n" +"Fibra_Seda: "+ InicioGH.getFibra_Seda()+"\tPlata: "+ InicioGH.getPlata()+"\tRoble: "+ InicioGH.getRoble());
+                
                 if (a == 1) {
                     Jug1 = 3;
                 } else {
@@ -55,10 +63,23 @@ public class FuncionesPrincipales {
 
             } else if (opcionRaza == 2) {
                 muestraDatosUsuario(nombre, "Raza Guerreros Humanos");
-                System.out.println("Esto mandará a llamar la factory de esta raza para proporcionar las opciones que desea ejecutar");
-
+                //System.out.println("Esto mandará a llamar la factory de esta raza para proporcionar las opciones que desea ejecutar");
+                CentroMandoOrcos InicioOrcos = new CentroMandoOrcos();
                 SR.nextLine(); //Soluciona el problema de limpiar el buffer
-// Líneas que me servirán para los turnos...
+                //Dispongo tando de \n (salto de línea) como de la creación de tabs \t ...
+                System.out.println("Sus recursos iniciales son los siguientes:\n" +"Fibra_Seda: "+ InicioOrcos+"\tPlata: "+ InicioOrcos+"\tRoble: "+ InicioOrcos);
+                SR.nextLine(); //Soluciona el problema de limpiar el buffer
+                /*CentroMandoGH g = new CentroMandoGH();
+                if(g.getPlata() >= 2500 && g.getRoble() >= 1000){
+                    //int actual = g.getplata; coste = actual - 2500; g.setRecursoN(coste); 
+                    g.getEdificacionesGueHuman().add(s);
+                    System.out.println(g.getEdificacionesGueHuman().size());
+                    g.setPlata(0);
+                    g.setRoble(0);
+                }
+                else{
+                    System.out.println("Ya no se puede canjear...");
+                }*/
                 if (a == 1) {
                     Jug1 = 3;
                 } else {
@@ -67,7 +88,53 @@ public class FuncionesPrincipales {
                 //Ejecuto la función del contador de a para pedir un último usuario...
                 a += 1;
 
-                //ESTAS OPCIONES SE DEBERÍAN EJECTUAR EN UNA FUNCIÓN APARTE.
+            } else if (opcionRaza == 3) {
+                muestraDatosUsuario(nombre, "Raza Esqueletos");
+                //System.out.println("Esto mandará a llamar la factory de esta raza y blabla x 3");
+                CentroMandoEs InicioEs = new CentroMandoEs();
+                SR.nextLine(); //Soluciona el problema de limpiar el buffer
+                //Dispongo tando de \n (salto de línea) como de la creación de tabs \t ...
+                System.out.println("Sus recursos iniciales son los siguientes:\n" +"Fibra_Seda: "+ InicioEs+"\tPlata: "+ InicioEs+"\tRoble: "+ InicioEs);
+                SR.nextLine(); //Soluciona el problema de limpiar el buffer
+
+                //Líneas para los turnos...
+                if (a == 1) {
+                    Jug1 = 3;
+                } else {
+                    Jug2 = 4;
+                }
+                //Ejecuto la función del contador de a para pedir un último usuario...
+                a += 1;
+            }
+
+        }
+        //System.out.println(Jug1 + Jug2);
+        //después de pedir datos personales [ESTÁNDO FUERA EL BUCKLE WHILE...
+        //Debería mandar a llamar una nueva funcion a partir de los datos escogidos como la opción de raza y nombres;
+    }
+
+    public static void muestraDatosUsuario(String nombre, String i) {
+        //puedo crear esto para que en un recuadro hecho a mano muestre al jugador lo que posee y eso,,,
+        System.out.println("Los datos del jugador son los siguientes: ");
+        System.out.println("Nombre usuario: " + nombre + " y su raza escogida es: " + i);
+        //System.out.println("De la cual posee los siguentes recursos: ");
+        //Acá debería imprimir un array inicializado con los recursos acutales, y luego un arraylist con las edificaciones y cosas demás que posee, que debería ser 0... 
+
+    }
+    
+    public static void InstanciacionEdificacionesSegunRazaJ1(String i){
+        switch(i){
+            
+        }
+ 
+    }
+    
+    public static void InstanciacionEdificacionesSegunRazaJ2(){
+        
+    }
+}
+
+//ESTAS OPCIONES SE DEBERÍAN EJECTUAR EN UNA FUNCIÓN APARTE.
                 /**
                  * ************
                  * System.out.println("Seleccione qué desea hacer:");
@@ -93,47 +160,3 @@ public class FuncionesPrincipales {
                  * CREAR, LE MANDO QUEMADO EL DATO DEL NOMBRE Y POR SUPUESTO EL
                  * LLAMDO A FUNCION GENERARERCURSO... //ed1.GenerarRecurso();
                  */
-            } else if (opcionRaza == 3) {
-                muestraDatosUsuario(nombre, "Raza Esqueletos");
-                System.out.println("Esto mandará a llamar la factory de esta raza y blabla x 3");
-
-                SR.nextLine(); //Soluciona el problema de limpiar el buffer
-                
-                //Líneas para los turnos...
-                if (a == 1) {
-                    Jug1 = 3;
-                } else {
-                    Jug2 = 4;
-                }
-                //Ejecuto la función del contador de a para pedir un último usuario...
-                a += 1;
-            }
-            
-            
-
-        }
-        
-        //Recibirá esto para poder hacer reales los turnos a partir de la fase 2...
-        TurnoJugador(Jug1, Jug2);
-
-        //System.out.println(Jug1 + Jug2);
-        //después de pedir datos personales [ESTÁNDO FUERA EL BUCKLE WHILE...
-        //Debería mandar a llamar una nueva funcion a partir de los datos escogidos como la opción de raza y nombres;
-    }
-
-    public static void muestraDatosUsuario(String nombre, String i) {
-        //puedo crear esto para que en un recuadro hecho a mano muestre al jugador lo que posee y eso,,,
-        System.out.println("Los datos del jugador son los siguientes: ");
-        System.out.println("Nombre usuario: " + nombre + " y su raza escogida es: " + i);
-        System.out.println("De la cual posee los siguentes recursos: ");
-        //Acá debería imprimir un array inicializado con los recursos acutales, y luego un arraylist con las edificaciones y cosas demás que posee, que debería ser 0... 
-
-    }
-
-    public static void TurnoJugador(int J1, int J2) {
-        //Recibiría si es jugador uno o dos y se ejecutará; podría hacer que si es par, sea jugador 2, si es impar el uno y se pedirán sus respectivas funciones con los datos correspondientes;
-        //Sí es el jugador uno, mando a llamar un sub menu para que escoja que quiere... en orden, crear ed... luego atacar etc...
-        
-        //Si es jugador dos que se proporcionen las mismas opciones dentro de un while, y solo hasta que se escoja o atacar o pasar de turno que retorne algo esas funciones y quiebren el sub while dentro de un do while..
-    }
-}
