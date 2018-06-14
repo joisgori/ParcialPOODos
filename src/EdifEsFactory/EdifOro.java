@@ -3,26 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package SoldaEsFactory;
+package EdifEsFactory;
 
 /**
  *
  * @author Josué González <0003471@uca.edu.sv>
  */
-public class MiliciaEs implements SoldadosEs {
+public class EdifOro implements EdificacionesEs {
 
     @Override
-    public int Salud(int danioOponentes) {
+    public int GenerarRecurso() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public int Atacar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void Danio(int danioOponente) {
+    public void almacenarCosas() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

@@ -7,6 +7,7 @@ package fabricaAbstractaOrcos;
 
 import EdifOFactory.EdificacionesO;
 import SoldaOFactory.SoldadosO;
+import VehOFactory.VehiculosO;
 
 /**
  *
@@ -16,7 +17,7 @@ public abstract class AbstractFactoryOrcos {
     //Esto me va a permitir escoger el tipo de edificación que el usario desea...
     public abstract EdificacionesO getEdificacion(String tipo); 
     
-    //public abstract VehiculosO getVehiculo(String tipo);
+    public abstract VehiculosO getVehiculo(String tipo);
     
     public abstract SoldadosO getSoldado(String tipo);
     

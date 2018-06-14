@@ -7,7 +7,7 @@ package VehGHFactory;
 
 /**
  *
- * @author josue
+ * @author Josué González <00034715@uca.edu.sv>
  */
 public class JabaliesGigantes implements Vehiculos {
 

@@ -11,7 +11,7 @@ import fabricaAbstractaEs.AbstractFactoryEs;
 
 /**
  *
- * @author josue
+ * @author Josué González <0003471@uca.edu.sv>
  */
 public class SoldadosEsFactory extends AbstractFactoryEs {
 
@@ -27,7 +27,13 @@ public class SoldadosEsFactory extends AbstractFactoryEs {
 
     @Override
     public SoldadosEs getSoldadoEs(String tipo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        switch(tipo){
+            case "Milicia Esqueletos":
+                return new MiliciaEs();
+            case "Zombie Gigante":
+                return new ZombieGrande();
+        }
+        return null;
     }
     
 }

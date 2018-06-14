@@ -5,16 +5,33 @@ package MenuPrincipal;
 //Estas importaciones mandan a traer mis funciones y métodos del menú principal
 
 import EdifEsFactory.EdificacionesEs;
+import EdifGHFactory.EdifEntrenamientoAguilas;
+import EdifGHFactory.EdifEntrenamientoJabalis;
+import EdifGHFactory.EdifEntrenamientoMyEGH;
+import EdifGHFactory.EdifPlata;
+import EdifGHFactory.EdifRoble;
 import EdifGHFactory.EdifSeda;
 import EdifGHFactory.Edificaciones;
+import EdifOFactory.EdifArcilla;
+import EdifOFactory.EdifArena;
+import EdifOFactory.EdifEntrenamientoDragones;
+import EdifOFactory.EdifEntrenamientoLobosG;
+import EdifOFactory.EdifEntrenamientoMySOrcos;
+import EdifOFactory.EdifPedernales;
+import EdifOFactory.EdificacionesO;
 import static MenuPrincipal.FuncionesPrincipales.ingresoUsuarios;
 import static MenuPrincipal.FuncionesPrincipales.instrucciones;
+import static MenuPrincipal.FuncionesPrincipales.InstanciacionEdificacionesSegunRazaJ1;
+import static MenuPrincipal.FuncionesPrincipales.muestraDatosUsuario;
+import SoldaEsFactory.MiliciaEs;
 import SoldaGHFactory.Milicia;
 import SoldaGHFactory.Soldados;
 import SoldaOFactory.MiliciaO;
+import fabricaAbstractaEs.CentroMandoEs;
 import fabricaAbstractaGH.AbstractFactoryGH;
 import fabricaAbstractaGH.CentroMandoGH;
 import fabricaAbstractaGH.FactoryProducerGH;
+import fabricaAbstractaOrcos.CentroMandoOrcos;
 //Acá las abstract factory que pediré por raza... aunque creo que las quitaré puesto que serán llamadas en la clase "FuncionesPrincipales"
 //import fabricaAbstractaGH.AbstractFactoryGH;
 import java.util.Scanner;
@@ -29,6 +46,217 @@ public class Principal {
 
     //Método main para la ejecución de mi videojuego.
     public static void main(String[] args) {
+        ///********************************* VERSIÓN 3.0 MENÚ FINAL....:
+        // INICIALIZO EL CENTRO DE MANDO DE CADA JUGADOR:
+        CentroMandoGH gh = new CentroMandoGH();
+        CentroMandoEs es = new CentroMandoEs();
+        CentroMandoOrcos orcos = new CentroMandoOrcos();
+        // ----------------------------------------------
+        // INICIALIZO LOS OBJETOS DE LAS MILICIAS:
+        Milicia MGH = new Milicia();
+        MiliciaO MO = new MiliciaO();
+        MiliciaEs MEs = new MiliciaEs();
+        // ----------------------------------------------
+        //INICIALIZO LOS OBJETOS DE LAS EDIFICACIONES:
+        Edificaciones s = new EdifSeda();   //OJO NO ESTOY SEGURO SI DEBERÍA DEFINIR ACÁ CADA OBJETO, O ESTE DEBERÍA RECREARSE DENTRO DE LA ITERACIÓN WHILE TURNO
+        Edificaciones P = new EdifPlata();  //PUESTO QUE SI NO, NO PODRÍA CREAR NUEVOS OBJETOS EN NUEVAS POSICIONES DE LA LSITA..
+        Edificaciones R = new EdifRoble();
+        Edificaciones EME = new EdifEntrenamientoMyEGH();
+        Edificaciones JABA = new EdifEntrenamientoJabalis();
+        Edificaciones AGUI = new EdifEntrenamientoAguilas();
+        
+        EdificacionesO Arci = new EdifArcilla();
+        EdificacionesO Are = new EdifArena();
+        EdificacionesO Ped = new EdifPedernales();
+        EdificacionesO EMO = new EdifEntrenamientoMySOrcos();
+        EdificacionesO LOB = new EdifEntrenamientoLobosG();
+        EdificacionesO DRA = new EdifEntrenamientoDragones();
+                
+
+        //EdificacionesEs e = new EdificacionesEs;
+        // ----------------------------------------------
+        //INCIALIZO LOS OBJETOS DE LOS VEHICULOS:
+        // ----------------------------------------------
+        // Debo declarar las variables con las que me iré moviendo por el menú
+        String nombre, nombreJ1 = null, nombreJ2 = null, nombreEdif;
+        int opcionSubMenuTurnos = 12, opcionEdif, opcionAtaque, a = 1, opcionRaza, opcionMenuRaza, opcionRazaJ1 = 0, opcionRazaJ2 = 0; //Sin esa igualación a cero, me da error abajo:v
+        // ----------------------------------------------
+        // INICIALIZO LOS OBJETOS DE TIPO SCANNER...:
+        Scanner TJ = new Scanner(System.in); //Turno Jugador
+        Scanner SR = new Scanner(System.in); //Turno Jugador
+        // ----------------------------------------------
+        // Desarrollo del menú en su versión 3.0 final.:
+        System.out.println("Bienvenido al juego JOSUE'S WORLD");
+        instrucciones();
+        while (a != 3) {
+            //Ingreso de datos de usuario (uno y dos)
+            System.out.println("Ingrese nombre de usuario");
+            nombre = SR.nextLine();
+            //Ahora pido el tipo de raza con la que desea jugar
+            System.out.println("A continuación, escoja la raza que desea...\n de momento solo puede escoger la raza humanos guerreros");
+            System.out.println("1. Raza Orcos\n2. Raza Guerreros Humanos\n3. Esqueletos");
+            opcionRaza = SR.nextInt();
+            if (opcionRaza == 1) {
+                muestraDatosUsuario(nombre, "Raza Orcos");
+                //Esto inicializa un centro de mando nuevo para jugador uno o jugador dos, o ambos al mismo tiempo, en el supuesto que escojan la misma raza...
+                CentroMandoOrcos InicioOrcos = new CentroMandoOrcos();
+                SR.nextLine(); //Soluciona el problema de limpiar el buffer
+                //Dispongo tando de \n (salto de línea) como de la creación de tabs \t ... y muestro los valores de los recursos con los que inicializa la nueva partida.
+                System.out.println("Sus recursos iniciales son los siguientes:\n" + "Arcilla: " + InicioOrcos.getArcilla() + "\tArena: " + InicioOrcos.getArena() + "\tPedernales: " + InicioOrcos.getPedernales());
+                if (a == 1) {
+                    //Acá asigno la selección de raza y nombre del jugador uno a un par de variables auxiliares que me servirá más adelante.
+                    opcionRazaJ1 = opcionRaza;
+                    nombreJ1 = nombre;
+                } else {
+                    //Acá asigno la selección de raza y nombre del jugador uno a un par de variables auxiliares que me servirá más adelante.
+                    opcionRazaJ2 = opcionRaza;
+                    nombreJ2 = nombre;
+                }
+                //Ejecuto la función del contador de a para pedir un último usuario...
+                a += 1;
+            } else if (opcionRaza == 2) {
+                muestraDatosUsuario(nombre, "Raza Guerreros Humanos");
+                CentroMandoGH InicioGH = new CentroMandoGH();
+                SR.nextLine(); //Soluciona el problema de limpiar el buffer
+                System.out.println("Sus recursos iniciales son los siguientes:\n" + "Fibra_Seda: " + InicioGH.getFibra_Seda() + "\tPlata: " + InicioGH.getPlata() + "\tRoble: " + InicioGH.getRoble());
+                if (a == 1) {
+                    opcionRazaJ1 = opcionRaza;
+                    nombreJ1 = nombre;
+                } else {
+                    opcionRazaJ2 = opcionRaza;
+                    nombreJ2 = nombre;
+                }
+                //Ejecuto la función del contador de a para pedir un último usuario...
+                a += 1;
+            } else if (opcionRaza == 3) {
+                muestraDatosUsuario(nombre, "Raza Esqueletos");
+                CentroMandoEs InicioEs = new CentroMandoEs();
+                SR.nextLine(); //Soluciona el problema de limpiar el buffer
+                System.out.println("Sus recursos iniciales son los siguientes:\n" + "Mármol: " + InicioEs.getMarmol() + "\tOro: " + InicioEs.getOro() + "\tRoble: " + InicioEs.getLava());
+                //Líneas para los turnos...
+                if (a == 1) {
+                    opcionRazaJ1 = opcionRaza;
+                    nombreJ1 = nombre;
+                } else {
+                    opcionRazaJ2 = opcionRaza;
+                    nombreJ2 = nombre;
+                }
+                a += 1;
+            }
+        }
+        //Ahora va la segunda fase del menú principal en su versión 3.0;
+        /*Genero mi do while con el que mantendré un fase inicial donde podrá gastar sus recursos c/u para la creación de sus edificaciones, las cuáles, de no ser
+        creadas o inicializadas, romperán este buckle pues no podrá crearse la vida que mantendrá el do while en un buckle finito, de igual manera, el objetivo es
+        que se termine el buckle si alguno de los dos jugadores llega a tener 0 en su vida máxima -----------> RECORDAR: SOLUCIONAR OPCIÓN DE PARO CON BOOLENAOS.
+         */
+        do {
+            while (opcionSubMenuTurnos != 5) { //Podría luego agregar que este turno se termine ya sea luego de atacar o luego de se quede sin recursos por usar y hasta milicias para atacar (no más de un objetivo)
+                System.out.println("TURNO JUGADOR 1: " + nombreJ1);
+                System.out.println("Ingrese la opción a ejecutar:");
+                System.out.println("1. Crear edificaciones\n2. Entrenar Soldados\n3. Atacar\n4. Mejorar Centro de Mando\n5. Pasar Turno [TEMPORAL]");
+                //Deberían ser 3 if anidados, según la selección de la raza previa... if anidados con switch's dentro de los mismos.
+                opcionSubMenuTurnos = TJ.nextInt();
+                if (opcionRazaJ1 == 1) {
+                    switch (opcionSubMenuTurnos) {
+                        case 1:
+                        System.out.println("Crea edificaciones");
+                        System.out.println("Seleccione qué edificación desea crear:\n1. Edificación para Arcilla\n2. Edificación para Arena\n3. Edificación para Pedernales\n4. Edificación para entrenar soldados y escuadrones\n5. Edificación para entrenar Dragones\n6. Edificación para entrenar Lobos Gigantes");
+                        opcionEdif = TJ.nextInt();
+                        switch (opcionEdif) {
+                            case 1:
+                                System.out.println("Instancio y creo la edif para arcilla y lo agrego al arreglo...");
+                                //Acá se generan las compras de cada una de las edificaciones
+                                if (orcos.getArena() >= 500 && orcos.getPedernales()>= 100) {
+                                    System.out.println(orcos.getArena());//solo para ver si entra
+                                    System.out.println(orcos.getPedernales());
+                                    int actualArena = orcos.getArena();
+                                    int costeArena = actualArena - 500;
+                                    int actualPedernal = orcos.getPedernales();
+                                    int costePedernal = actualPedernal - 100;
+                                    orcos.getEdificacionesO().add(Arci);
+                                    System.out.println(orcos.getEdificacionesO().size());
+                                    System.out.println(orcos.getArena());//solo para ver si entra
+                                    System.out.println(orcos.getPedernales());
+                                    orcos.setArena(costeArena);
+                                    orcos.setPedernales(costePedernal);
+                                    System.out.println(orcos.getArena());//solo para ver si entra
+                                    System.out.println(orcos.getPedernales());
+                                } else {
+                                    System.out.println("Ya no se puede canjear...");
+                                }
+                                break;
+                            case 2:
+                                System.out.println("Instancio y creo el objeto 2 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
+                                break;
+                            case 3:
+                                System.out.println("Instancio y creo el objeto 3 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
+                                break;
+                            case 4:
+                                System.out.println("Instancio y creo el objeto 4 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
+                                break;
+                            case 5:
+                                System.out.println("Instancio y creo el objeto 5 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
+                                break;
+                            case 6:
+                                System.out.println("Instancio y creo el objeto 6 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
+                                break;
+                            default:
+                                System.out.println("Ingrese una opción válida");
+                                break;
+                        }
+                        break;
+                    case 2:
+                        System.out.println("Por favor, seleccione con qué desea entrenar: ");
+                        System.out.println("1. Milia + talRaza\n2. Super Soldado + segunRaza\n3. Vehículo Terrestre + segúnRaza\n4. Vehículo Aéreo + según raza");
+                        opcionAtaque = TJ.nextInt();
+                        switch (opcionAtaque) {
+                            case 1:
+                                System.out.println("Ataco a la milica de tal raza N");
+                                break;
+                            case 2:
+                                System.out.println("Atacó al super soldado de tal raza N");
+                                break;
+                            case 3:
+                                System.out.println("Atacó a tal vehículo de la raza");
+                                break;
+                            case 4:
+                                System.out.println("Atacó a tal vehículo aéreo...");
+                                break;
+                            default:
+                                System.out.println("Escoja una opción válida");
+                                break;
+                        }
+                        MGH.Danio(MO.Atacar());
+                        System.out.println(MGH.getSalud());
+                        break;
+                    case 3:
+                        System.out.println("Verificar cantidad de recursos y mejorar el CENTRO DE MANDO"); //Puedo poner afuera de todo esto el muestreo de los recursos actuales...
+                        break;
+                    case 4:
+                        System.out.println("Verificar cantidad de recursos y mejorar el CENTRO DE MANDO");
+                        break;
+                    case 5:
+                        System.out.println("Pasar de turno....");
+                    default:
+                        System.out.println("Escoja opción válida");
+                        break;
+                }
+                } else if(opcionRazaJ1 == 2){
+                    System.out.println("Acá irá el segundo case... GUERREROS HUMANOS --- LA ÚNICA FUNCIONAL AHORITA.");
+                                        
+                } else if(opcionRazaJ1 == 4){
+                    System.out.println("Acá irá el tercer case... ESQUELETOS");
+                                        
+                } else {
+                    System.out.println("Debió escojer una opción válida...");
+                }
+                //Acá puedo mostrar el arreglo de prueba de edificaciones:
+                for(int i = 0; i < orcos.getEdificacionesO().size(); i++){
+                   System.out.println(orcos.getEdificacionesO().get(i).GenerarRecurso());
+                   // System.out.println(orcos.flag);
+                }
+            }
+        } while (false);
 
         /* 
         System.out.println("Bienvenido al juego JOSUE'S WORLD");
@@ -69,26 +297,24 @@ public class Principal {
             oe1.atacar();
         }   ESTO NO ESTÁ FUNCIONANDO, PERO DEBERÍA OFRECERME LA OPCIÓN DE MENÚ A PARTIR DE LO QUE SELECCIONÉ, DEBO EDTIAR ESTO*/
         //*********************APARTIR DE ACÁ ESTÁ LA NUEVA FASE DE MI PARCIAL, PARCIAL 2.0********************************
-        AbstractFactoryGH v2, vEnemigos;
+        //AbstractFactoryGH v2, vEnemigos;
         //******************************************* SACO ACÁ LA DEF
         //Por acá afuera debo definir el objeto que atacará creo.
-        v2 = FactoryProducerGH.getFactoryGH("Soldados");
-        v2.getSoldado("Milicia");
-        Milicia MGH = new Milicia();
-        MiliciaO MO = new MiliciaO();
-        int opcionSubMenuTurnos = 12, opcionEdif;
-        Scanner TJ = new Scanner(System.in); //Turno Jugador
-        instrucciones();
-        ingresoUsuarios();
-        CentroMandoGH g = new CentroMandoGH();
-
+        //v2 = FactoryProducerGH.getFactoryGH("Soldados");
+        //v2.getSoldado("Milicia");
+        //Milicia MGH = new Milicia();
+        //MiliciaO MO = new MiliciaO();
+        //int opcionSubMenuTurnos = 12, opcionEdif, opcionAtaque;
+        //Scanner TJ = new Scanner(System.in); //Turno Jugador
+        //instrucciones();
+        //ingresoUsuarios();
+        //CentroMandoGH g = new CentroMandoGH();
         //podría ser los primeros turnos o mejor dicho, la mismísima fase uno la que vayan quemadas ejecutadas acá en un par de líneas
         //luego hacer un while para que inmediatamente ocurra eso y se guarden las cosas creadas en el array pueda generar acá un while con condiciones de vida
         //donde terminará hasta que la vida de cada jugador (que será la suma de la vida de todas las edificaicones sea destruida). ..
         //Podría hacer un while algo true que luego apunte a un entero que sea diferente de cero que represente la vida sumada de las estructuras;
         do {
             //Puedo hacer dos buckles while donde la condición sea que si no escogió atacar se mantenga, y luego de escoger atacar y a quien se corte y pase al siguiente buckle
-
             while (opcionSubMenuTurnos != 3 && opcionSubMenuTurnos != 2) { //CAMBIO EN LA CONDICIÓN PARA QUE INDMEDIATAMENTE SE ATAQUE, SE PASE AL SIGUIENTE TURNO :D
                 System.out.println("TURNO JUGADOR 1");
                 System.out.println("Ingrese la opción a ejecutar: ***SI NO HAY EDIFICACIONES, (DEBO HACER UNA VALIDACIÓN DE SI LOS ARREGLOS A GUARDAR APUNTAN NULO QUE SE PASE DE LARGO A DAR LAS OPCINES DE ATAQUE O CREAR ALGO MÁS...)");
@@ -99,12 +325,12 @@ public class Principal {
                         System.out.println("Crea edificaciones");
                         //VOY A ASUMIR AHORITA QUE SIEMPRE ESCOJE LA RAZA DE HUMANOS...
                         //CentroMandoGH g = new CentroMandoGH();
-                        Edificaciones s = new EdifSeda(); //ASUMIENDO QUE DE UNA VEZ LA EDIFICACIÓN QUE CREO ES LA DE SEDA...
-                        if (g.getPlata() >= 2500 && g.getRoble() >= 1000) {
+                        //Edificaciones s = new EdifSeda(); //ASUMIENDO QUE DE UNA VEZ LA EDIFICACIÓN QUE CREO ES LA DE SEDA...
+           /*             if (g.getPlata() >= 2500 && g.getRoble() >= 1000) {
                             System.out.println(g.getPlata());//solo para ver si entra
                             System.out.println(g.getRoble());
                             int actual = g.getPlata();
-                            int coste = actual - 2500; 
+                            int coste = actual - 2500;
                             g.getEdificacionesGueHuman().add(s);
                             System.out.println(g.getEdificacionesGueHuman().size());
                             System.out.println(g.getPlata());//solo para ver si entra
@@ -113,10 +339,10 @@ public class Principal {
                             g.setRoble(coste);
                             System.out.println(g.getPlata());//solo para ver si entra
                             System.out.println(g.getRoble());
-                            
+
                         } else {
                             System.out.println("Ya no se puede canjear...");
-                        }
+                        }*/
                         break;
                     case 2:
                         System.out.println("Ataca según lo planetado antes");
@@ -167,25 +393,51 @@ public class Principal {
                         System.out.println("Seleccione qué edificación desea crear:\n1. Edificación para recurso 1\n2. Edificación para recurso 2\n3. Edificación para recurso 3\n4. Edificación para entrenar soldados y escuadrones\n5. Edificación para construir Vehículos tipo 1\n6. Edificación para construir Vehículos tipo 2");
                         //TJ.nextInt();
                         opcionEdif = TJ.nextInt();
-                        switch(opcionEdif){
+                        switch (opcionEdif) {
                             case 1:
-                                System.out.println("Pasa esto... y break"); //Con o sin break, regreso al menú principal...
+                                System.out.println("Instancio y creo el objeto 1 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
                                 break;
                             case 2:
-                                System.out.println("Regreso al 'menu principal' sin un break?");
+                                System.out.println("Instancio y creo el objeto 2 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
                                 break;
                             case 3:
+                                System.out.println("Instancio y creo el objeto 3 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
+                                break;
                             case 4:
+                                System.out.println("Instancio y creo el objeto 4 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
+                                break;
                             case 5:
+                                System.out.println("Instancio y creo el objeto 5 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
+                                break;
                             case 6:
-                            //default:
-                              //  System.out.println("Ingrese una opción válida");
-                            
+                                System.out.println("Instancio y creo el objeto 6 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
+                                break;
+                            default:
+                                System.out.println("Ingrese una opción válida");
+                                break;
                         }
                         break;
                     case 2:
-                        System.out.println("Ataca según lo planetado antes");
-                        System.out.println("Selecciono a quien atacar, quemadamente acá escogeré de una vez a la otra milica...");
+                        System.out.println("Por favor, seleccione con qué desea atacar: ");
+                        System.out.println("1. Milia + talRaza\n2. Super Soldado + segunRaza\n3. Vehículo Terrestre + segúnRaza\n4. Vehículo Aéreo + según raza");
+                        opcionAtaque = TJ.nextInt();
+                        switch (opcionAtaque) {
+                            case 1:
+                                System.out.println("Ataco a la milica de tal raza N");
+                                break;
+                            case 2:
+                                System.out.println("Atacó al super soldado de tal raza N");
+                                break;
+                            case 3:
+                                System.out.println("Atacó a tal vehículo de la raza");
+                                break;
+                            case 4:
+                                System.out.println("Atacó a tal vehículo aéreo...");
+                                break;
+                            default:
+                                System.out.println("Escoja una opción válida");
+                                break;
+                        }
 
                         /* *** ESTO LO OBVIO AHORITA
                         vEnemigos = FactoryProducerGH.getFactoryGH("Soldados");
@@ -208,10 +460,10 @@ public class Principal {
             opcionSubMenuTurnos = 12;
             //TJ.nextInt();
 
-            v2 = FactoryProducerGH.getFactoryGH("Soldados");
+           // v2 = FactoryProducerGH.getFactoryGH("Soldados");
 
             //FINALMENTE AGREGO QUE LA VIDA DE AMBAS COSAS SEA MAYOR A CERO...
-        } while(false); //while (MGH.getSalud() > 0 && MO.getSalud() > 0); //Separados por and, pues si falla uno se rompe el buckle
+        } while (false); //while (MGH.getSalud() > 0 && MO.getSalud() > 0); //Separados por and, pues si falla uno se rompe el buckle
 
         //ahorita quizá vaya a probar con la vida nada más de los militares, cambiaré la condición del while...
         //Vale madres, probé con esto y no funcionó... v2.getSoldado("Milicia").Salud(opcionSubMenuTurnos) != 0 [DE CONDICIÓN...]

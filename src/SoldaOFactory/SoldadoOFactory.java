@@ -6,11 +6,12 @@
 package SoldaOFactory;
 
 import EdifOFactory.EdificacionesO;
+import VehOFactory.VehiculosO;
 import fabricaAbstractaOrcos.AbstractFactoryOrcos;
 
 /**
  *
- * @author josue
+ * @author Josué González <0003471@uca.edu.sv>
  */
 public class SoldadoOFactory extends AbstractFactoryOrcos{
 
@@ -28,6 +29,11 @@ public class SoldadoOFactory extends AbstractFactoryOrcos{
                 return new Ogro();
         }
         return null;
+    }
+
+    @Override
+    public VehiculosO getVehiculo(String tipo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

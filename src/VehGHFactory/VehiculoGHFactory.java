@@ -23,9 +23,9 @@ public class VehiculoGHFactory extends AbstractFactoryGH {
     @Override
     public Vehiculos getVehiculo(String tipo) {
          switch(tipo){
-            case "Terrestres":
+            case "Jabalies Gigantes":
                 return new JabaliesGigantes() ;
-            case "Aéreos": //De este solo podrá haber uno en batalla **DEBERÉ HACER TAL VALIDACIÓN
+            case "Aguilas Gigantes": //De este solo podrá haber uno en batalla **DEBERÉ HACER TAL VALIDACIÓN
                 return new AguilasGigantes();
         }
         return null;

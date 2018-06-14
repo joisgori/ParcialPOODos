@@ -7,8 +7,11 @@ package SoldaEsFactory;
 
 /**
  *
- * @author josue
+ * @author Josué González <0003471@uca.edu.sv>
  */
 public interface SoldadosEs {
+    public int Salud(int danioOponentes);
+    public int Atacar(); //Debe devolver un entero con el daño que se haga...
+    public void Danio(int danioOponente);
     
 }

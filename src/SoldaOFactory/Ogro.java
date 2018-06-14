@@ -9,7 +9,7 @@ import java.util.Random;
 
 /**
  *
- * @author josue
+ * @author Josué González <0003471@uca.edu.sv>
  */
 public class Ogro implements SoldadosO {
     private int Salud = 75; //creo que no debería ser abstract y se deberá implementar así, a dif de atacar...

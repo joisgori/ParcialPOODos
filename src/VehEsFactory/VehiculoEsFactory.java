@@ -11,7 +11,7 @@ import fabricaAbstractaEs.AbstractFactoryEs;
 
 /**
  *
- * @author josue
+ * @author Josué González <0003471@uca.edu.sv>
  */
 public class VehiculoEsFactory extends AbstractFactoryEs {
 
@@ -22,7 +22,13 @@ public class VehiculoEsFactory extends AbstractFactoryEs {
 
     @Override
     public VehiculosEs getVehiculoEs(String tipo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        switch(tipo){
+            case "Dragones esqueletos":
+                return new DragonesEsqueletos();
+            case "Rinocerontes Esqueletos":
+                return new RinocerontesEsqueletos();   
+        }
+        return null;
     }
 
     @Override

@@ -51,12 +51,16 @@ public class FuncionesPrincipales {
                 CentroMandoOrcos InicioOrcos = new CentroMandoOrcos();
                 SR.nextLine(); //Soluciona el problema de limpiar el buffer
                 //Dispongo tando de \n (salto de línea) como de la creación de tabs \t ...
-                System.out.println("Sus recursos iniciales son los siguientes:\n" + "Fibra_Seda: " + InicioOrcos + "\tPlata: " + InicioOrcos + "\tRoble: " + InicioOrcos);
+                System.out.println("Sus recursos iniciales son los siguientes:\n" + "Arcilla: " + InicioOrcos.getArcilla() + "\tArena: " + InicioOrcos.getArena() + "\tPedernales: " + InicioOrcos.getPedernales());
 
                 if (a == 1) {
-                    Jug1 = 3;
+                    //Jug1 = 3; de momento no voy a ocupar esto, pero sí mandaré según turno a llamar la función del turno que recibirá como parámetro la instanciación de razas...
+                    //**** de esta manera:
+                    InstanciacionEdificacionesSegunRazaJ1(opcionRaza);
                 } else {
-                    Jug2 = 4;
+                    //Jug2 = 4;
+                    //InstanciacionEdificacionesSegunRazaJ2();
+                    
                 }
                 //Ejecuto la función del contador de a para pedir un último usuario...
                 a += 1;
@@ -69,17 +73,6 @@ public class FuncionesPrincipales {
                 //Dispongo tando de \n (salto de línea) como de la creación de tabs \t ...
                 System.out.println("Sus recursos iniciales son los siguientes:\n" + "Fibra_Seda: " + InicioGH.getFibra_Seda() + "\tPlata: " + InicioGH.getPlata() + "\tRoble: " + InicioGH.getRoble());
 
-                /*CentroMandoGH g = new CentroMandoGH();
-                if(g.getPlata() >= 2500 && g.getRoble() >= 1000){
-                    //int actual = g.getplata; coste = actual - 2500; g.setRecursoN(coste); 
-                    g.getEdificacionesGueHuman().add(s);
-                    System.out.println(g.getEdificacionesGueHuman().size());
-                    g.setPlata(0);
-                    g.setRoble(0);
-                }
-                else{
-                    System.out.println("Ya no se puede canjear...");
-                }*/
                 if (a == 1) {
                     Jug1 = 3;
                 } else {
@@ -94,9 +87,8 @@ public class FuncionesPrincipales {
                 CentroMandoEs InicioEs = new CentroMandoEs();
                 SR.nextLine(); //Soluciona el problema de limpiar el buffer
                 //Dispongo tando de \n (salto de línea) como de la creación de tabs \t ...
-                System.out.println("Sus recursos iniciales son los siguientes:\n" + "Fibra_Seda: " + InicioEs + "\tPlata: " + InicioEs + "\tRoble: " + InicioEs);
-                SR.nextLine(); //Soluciona el problema de limpiar el buffer
-
+                System.out.println("Sus recursos iniciales son los siguientes:\n" + "Mármol: " + InicioEs.getMarmol() + "\tOro: " + InicioEs.getOro() + "\tRoble: " + InicioEs.getLava());
+                
                 //Líneas para los turnos...
                 if (a == 1) {
                     Jug1 = 3;
@@ -113,23 +105,94 @@ public class FuncionesPrincipales {
         //Debería mandar a llamar una nueva funcion a partir de los datos escogidos como la opción de raza y nombres;
     }
 
-    public static void muestraDatosUsuario(String nombre, String i) {
+    public static String muestraDatosUsuario(String nombre, String i) {
         //puedo crear esto para que en un recuadro hecho a mano muestre al jugador lo que posee y eso,,,
         System.out.println("Los datos del jugador son los siguientes: ");
         System.out.println("Nombre usuario: " + nombre + " y su raza escogida es: " + i);
         //System.out.println("De la cual posee los siguentes recursos: ");
         //Acá debería imprimir un array inicializado con los recursos acutales, y luego un arraylist con las edificaciones y cosas demás que posee, que debería ser 0... 
 
+        
+        //Que retorne la raza y se ejecuten tres de estos, separados aquí dentro por un if else if...
+        return i;
     }
 
-    public static void InstanciacionEdificacionesSegunRazaJ1(String i) {
-        switch (i) {
-
-        }
+    public static void InstanciacionEdificacionesSegunRazaJ1(int i) {
 
     }
 
     public static void InstanciacionEdificacionesSegunRazaJ2() {
+        int opcionSubMenuTurnos, opcionEdif, opcionAtaque;
+        Scanner TJ = new Scanner(System.in);
+        System.out.println("1. Crear edificaciones\n2. Atacar [Sub menú si desea hacerlo con un Super Soldado o milicia normal]");
+                opcionSubMenuTurnos = TJ.nextInt();
+                switch (opcionSubMenuTurnos) {
+                    case 1:
+                        System.out.println("Crea edificaciones");
+                        System.out.println("Seleccione qué edificación desea crear:\n1. Edificación para recurso 1\n2. Edificación para recurso 2\n3. Edificación para recurso 3\n4. Edificación para entrenar soldados y escuadrones\n5. Edificación para construir Vehículos tipo 1\n6. Edificación para construir Vehículos tipo 2");
+                        //TJ.nextInt();
+                        opcionEdif = TJ.nextInt();
+                        switch(opcionEdif){
+                            case 1:
+                                System.out.println("Instancio y creo el objeto 1 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
+                                break;
+                            case 2:
+                                System.out.println("Instancio y creo el objeto 2 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
+                                break;
+                            case 3:
+                                System.out.println("Instancio y creo el objeto 3 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
+                                break;
+                            case 4:
+                                System.out.println("Instancio y creo el objeto 4 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
+                                break;
+                            case 5:
+                                System.out.println("Instancio y creo el objeto 5 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
+                                break;
+                            case 6:
+                                System.out.println("Instancio y creo el objeto 6 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
+                                break;                               
+                            default:
+                                System.out.println("Ingrese una opción válida");
+                                break;
+                        }
+                        break;
+                    case 2:
+                        System.out.println("Por favor, seleccione con qué desea atacar: ");
+                        System.out.println("1. Milia + talRaza\n2. Super Soldado + segunRaza\n3. Vehículo Terrestre + segúnRaza\n4. Vehículo Aéreo + según raza");
+                        opcionAtaque = TJ.nextInt();
+                        switch(opcionAtaque){
+                            case 1:
+                                System.out.println("Ataco a la milica de tal raza N");
+                                break;
+                            case 2:
+                                System.out.println("Atacó al super soldado de tal raza N");
+                                break;
+                            case 3:
+                                System.out.println("Atacó a tal vehículo de la raza");
+                                break;
+                            case 4:
+                                System.out.println("Atacó a tal vehículo aéreo...");
+                                break;
+                            default:
+                                System.out.println("Escoja una opción válida");
+                                break;
+                        }
+
+                        /* *** ESTO LO OBVIO AHORITA
+                        vEnemigos = FactoryProducerGH.getFactoryGH("Soldados");
+                        v2 = FactoryProducerGH.getFactoryGH("Soldados");
+                        v2.getSoldado("Milicia").Danio(vEnemigos.getSoldado("Milicia").Atacar()); //ACÁ LE MANDO EL DAÑO AL ENEMIGO...
+                         */
+                  //      MGH.Danio(MO.Atacar());
+                  //      System.out.println(MGH.getSalud());
+                        break;
+                    case 3:
+                        System.out.println("Se sale del buckle y que me tire al segund sub while");
+                        break;
+                    default:
+                        System.out.println("Escoja opción válida");
+                        break;
+                }
 
     }
 }

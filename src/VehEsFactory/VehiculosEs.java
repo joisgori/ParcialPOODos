@@ -7,8 +7,10 @@ package VehEsFactory;
 
 /**
  *
- * @author josue
+ * @author Josué González <0003471@uca.edu.sv>
  */
 public interface VehiculosEs {
+    public void atacar();
+    public void danio();
     
 }

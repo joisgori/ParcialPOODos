@@ -9,7 +9,7 @@ import java.util.Random;
 
 /**
  *
- * @author josue
+ * @author Josué González <00034715@uca.edu.sv>
  */
 public class HumanoGigante implements Soldados {
     private int Salud = 150; //creo que no debería ser abstract y se deberá implementar así, a dif de atacar...

@@ -11,7 +11,7 @@ import fabricaAbstractaOrcos.AbstractFactoryOrcos;
 
 /**
  *
- * @author josue
+ * @author Josué González <0003471@uca.edu.sv>
  */
 public class VehiculoOFactory extends AbstractFactoryOrcos {
 
@@ -24,5 +24,16 @@ public class VehiculoOFactory extends AbstractFactoryOrcos {
     public SoldadosO getSoldado(String tipo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
+    @Override
+    public VehiculosO getVehiculo(String tipo) {
+        switch (tipo) {
+            case "Dragones":
+                return new DragonesO();
+            case "Lobos Gigantes":
+                return new LobosGigantesO();
+        }
+        return null;
+    }
+
 }

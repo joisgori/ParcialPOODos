@@ -9,7 +9,7 @@ import java.util.Random;
 
 /**
  *
- * @author josue
+ * @author Josué González <00034715@uca.edu.sv>
  */
 public class Milicia implements Soldados {
 

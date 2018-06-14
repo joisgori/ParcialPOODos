@@ -7,7 +7,7 @@ package EdifOFactory;
 
 /**
  *
- * @author josue
+ * @author Josué González <00034715@uca.edu.sv>
  */
 public interface EdificacionesO {
     public int GenerarRecurso();
