@@ -11,6 +11,18 @@ package VehEsFactory;
  */
 public class DragonesEsqueletos implements VehiculosEs {
 
+    private int Salud = 200; //creo que no debería ser abstract y se deberá implementar así, a dif de atacar...
+    private String nombre;
+
+    public int getSalud() {
+        return Salud;
+    }
+
+    public void setSalud(int Salud) {
+        this.Salud = Salud;
+    }
+    
+
     @Override
     public void atacar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -20,5 +32,5 @@ public class DragonesEsqueletos implements VehiculosEs {
     public void danio() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
