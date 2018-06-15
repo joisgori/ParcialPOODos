@@ -1,9 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Suponiendo ahorita que en ninguna debo recolectar nada, sino que automáticamente mande mensaje a la clase Centro de Mando GH
+ * para setter el valor...
  */
 package EdifGHFactory;
+
+import MenuPrincipal.FuncionesPrincipales;
+import fabricaAbstractaGH.CentroMandoGH;
 
 /**
  *
@@ -11,15 +13,36 @@ package EdifGHFactory;
  */
 public class EdifSeda implements Edificaciones {
 
-    int TotalRecurso = 2500, Temporal = 2500, vidaEd = 10;
+    CentroMandoGH gh = new CentroMandoGH();
+    private int Temporal, vidaEd = 10, faseInicial;
+    //Métodos getter y setter para la vidaEd:
+
+    public EdifSeda() {
+        faseInicial = FuncionesPrincipales.fase;
+    }
+
+    public int getVidaEd() {
+        return vidaEd;
+    }
+
+    public void setVidaEd(int vidaEd) {
+        this.vidaEd = vidaEd;
+    }
 
     @Override
-    public int GenerarRecurso() {
-        System.out.println("Cantidad de seda actual " + TotalRecurso);
-        //después de ciertas fases      ESTO SE ARREGLA CON UN WHILE O FOR, O INCLUSIVE IF...
-        TotalRecurso += (Temporal * 0.2);
-        System.out.println("después de X fases ahora posee: " + TotalRecurso);
-        return TotalRecurso;
+    public void GenerarRecurso() {
+        
+        if (FuncionesPrincipales.fase > (faseInicial + 2)) {
+            System.out.println("Cantidad de seda actual " + gh.getFibra_Seda());
+            Temporal = gh.getFibra_Seda();
+            //después de ciertas fases      ESTO SE ARREGLA CON UN WHILE O FOR, O INCLUSIVE IF...
+            Temporal += (Temporal * 0.2);
+            gh.setFibra_Seda(Temporal);
+            System.out.println("después de X fases ahora posee: " + gh.getFibra_Seda());
+        }
+        else{
+            System.out.println("La edificación Seda ha sido creada, y podrá usarse hasta la fase " + (faseInicial+3));   
+        }
     }
 
     @Override

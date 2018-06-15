@@ -16,8 +16,16 @@ import java.util.ArrayList;
 public class CentroMandoGH {
 
     // recursos:
-    private int Fibra_Seda = 750, Plata = 2500, Roble = 1000;
+    private int Fibra_Seda, Plata, Roble;
     private ArrayList<Edificaciones> EdificacionesGueHuman = new ArrayList<Edificaciones>(); //ACÁ ES DONDE PODRÍAN IR LAS DEL PATRÓN BUILDER...
+
+    public CentroMandoGH() {
+        Fibra_Seda = 750;
+        Plata = 2500; 
+        Roble = 1000;
+    }
+    
+    
     //Métodos getter y setter del centro de mando para los recursos
 
     public int getFibra_Seda() {

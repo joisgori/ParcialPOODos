@@ -5,13 +5,20 @@
  */
 package EdifGHFactory;
 
+import MenuPrincipal.FuncionesPrincipales;
+
 /**
  *
  * @author Josué González <00034715@uca.edu.sv>
  */
 public class EdifEntrenamientoAguilas implements Edificaciones {
 
-    int vida = 15;
+    private int vida = 15, faseInicial;
+
+    public EdifEntrenamientoAguilas() {
+        faseInicial = FuncionesPrincipales.fase;
+    }
+    
 
     //Métodos getter y setter de vida
     public int getVida() {
@@ -24,12 +31,12 @@ public class EdifEntrenamientoAguilas implements Edificaciones {
 
     //Métodos abstractos
     @Override
-    public int GenerarRecurso() {
+    public void almacenarCosas() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void almacenarCosas() {
+    public void GenerarRecurso() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

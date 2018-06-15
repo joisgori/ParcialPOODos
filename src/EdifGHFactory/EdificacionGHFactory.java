@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Esta es la clase que me permite generar el objeto según el tipo de edificación que deseo...
  */
 package EdifGHFactory;
 
@@ -23,7 +21,6 @@ public class EdificacionGHFactory extends AbstractFactoryGH {
             case "Edif recurso Plata":
                 return new EdifPlata(); //Debo colocar una opción de recolectar recuros...
             case "Edif recurso Roble":
-                System.out.println("..SE EJECUTA ESTO SIN PROBLEMAS");
                 return new EdifRoble(); //generará el recurso automáticamente...
             case "Edif entrenamiento Super Soldado y Milicia": //**** luego deberé amarrar que si creo unos soldados no pueden existir sin esta edif...
                 return new EdifEntrenamientoMyEGH();

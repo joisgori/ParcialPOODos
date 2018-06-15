@@ -195,6 +195,15 @@ public class FuncionesPrincipales {
                 }
 
     }
+    
+    public static int fase=0;
+    
+    public static void Fase(){
+        
+        System.out.println("Está en la fase " + fase);
+        fase += 1;
+    }
+    
 }
 
 //ESTAS OPCIONES SE DEBERÍAN EJECTUAR EN UNA FUNCIÓN APARTE.
