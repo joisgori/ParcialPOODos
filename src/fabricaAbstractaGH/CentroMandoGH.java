@@ -25,7 +25,6 @@ public class CentroMandoGH {
         Roble = 1000;
     }
     
-    
     //Métodos getter y setter del centro de mando para los recursos
 
     public int getFibra_Seda() {

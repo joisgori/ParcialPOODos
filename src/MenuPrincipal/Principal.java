@@ -61,9 +61,9 @@ public class Principal {
         //Edificaciones s = new EdifSeda();   //OJO NO ESTOY SEGURO SI DEBERÍA DEFINIR ACÁ CADA OBJETO, O ESTE DEBERÍA RECREARSE DENTRO DE LA ITERACIÓN WHILE TURNO
         //Edificaciones P = new EdifPlata();  //PUESTO QUE SI NO, NO PODRÍA CREAR NUEVOS OBJETOS EN NUEVAS POSICIONES DE LA LSITA..
         //Edificaciones R = new EdifRoble();
-        Edificaciones EME = new EdifEntrenamientoMyEGH();
-        Edificaciones JABA = new EdifEntrenamientoJabalis();
-        Edificaciones AGUI = new EdifEntrenamientoAguilas();
+        //Edificaciones EME = new EdifEntrenamientoMyEGH();
+        //Edificaciones JABA = new EdifEntrenamientoJabalis();
+        //Edificaciones AGUI = new EdifEntrenamientoAguilas();
         
         //EdificacionesO Arci = new EdifArcilla();
         EdificacionesO Are = new EdifArena();
@@ -279,7 +279,7 @@ public class Principal {
                         opcionEdif = TJ.nextInt();
                         switch (opcionEdif) {
                             case 1:
-                                System.out.println("Instancio y creo la edif para la Seda y lo agrego al arreglo...");
+                                //System.out.println("Instancio y creo la edif para la Seda y lo agrego al arreglo...");
                                 //Acá se generan las compras de cada una de las edificaciones
                                 if (gh.getPlata()>= 500 && gh.getRoble()>= 100 && !GHSeda) {
                                     Edificaciones s = new EdifSeda(); //A pues sí, es necesario definir acá dentro los objetos para que cada uno sea independiente del valor afectado.
@@ -297,7 +297,7 @@ public class Principal {
                                     System.out.println(gh.getPlata());//solo para ver si entra
                                     System.out.println(gh.getRoble());
                                 } else {
-                                    System.out.println("Ya no se puede canjear...");
+                                    System.out.println("Es probable que no posee la cantidad suficiente de recursos para comprar una o ya posee un objeto de este tipo.");
                                 }
                                 break;
                             case 2:
@@ -318,7 +318,7 @@ public class Principal {
                                     System.out.println(gh.getRoble());//solo para ver si entra
                                     System.out.println(gh.getFibra_Seda());
                                 } else {
-                                    System.out.println("Ya no se puede canjear...");
+                                    System.out.println("Es probable que no posee la cantidad suficiente de recursos para comprar una o ya posee un objeto de este tipo.");
                                 }
                                 break;
                             case 3:
@@ -339,17 +339,87 @@ public class Principal {
                                     System.out.println(gh.getPlata());//solo para ver si entra
                                     System.out.println(gh.getFibra_Seda());
                                 } else {
-                                    System.out.println("Ya no se puede canjear...");
+                                    System.out.println("Es probable que no posee la cantidad suficiente de recursos para comprar una o ya posee un objeto de este tipo.");
                                 }
                                 break;
                             case 4:
-                                System.out.println("Instancio y creo el objeto 4 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
+                                System.out.println("Edificación entrenamiento de soldados y milica..."); //Con o sin break, regreso al menú principal...
+                                //500 , 1500 y 750...
+                                if(gh.getFibra_Seda()>=500 && gh.getPlata()>=1500 && gh.getRoble()>=750 && !GHEntrenaMil){
+                                    Edificaciones EME = new EdifEntrenamientoMyEGH();
+                                    System.out.println(gh.getFibra_Seda());
+                                    System.out.println(gh.getPlata());
+                                    System.out.println(gh.getRoble());//solo para ver si entra                       
+                                    int actualFibra = gh.getFibra_Seda();
+                                    int costeFibra = actualFibra - 500;
+                                    int actualPlata = gh.getPlata();
+                                    int costePlata = actualPlata - 1500;
+                                    int actualRoble = gh.getRoble();
+                                    int costeRoble = actualRoble - 750;
+                                    gh.getEdificacionesGueHuman().add(EME);
+                                    GHEntrenaMil = true;
+                                    System.out.println(gh.getEdificacionesGueHuman().size());
+                                    gh.setFibra_Seda(costeFibra);
+                                    gh.setPlata(costePlata);
+                                    gh.setRoble(costeRoble);                                    
+                                    System.out.println(gh.getPlata());//solo para ver si entra
+                                    System.out.println(gh.getFibra_Seda());
+                                    System.out.println(gh.getRoble());                                                                        
+                                } else {
+                                    System.out.println("Es probable que no posee la cantidad suficiente de recursos para comprar una o ya posee un objeto de este tipo.");
+                                }
                                 break;
                             case 5:
-                                System.out.println("Instancio y creo el objeto 5 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
+                                System.out.println("Edif Entrenamiento de Águileas..."); //Con o sin break, regreso al menú principal...
+                                if(gh.getFibra_Seda()>=400 && gh.getPlata()>=2150 && gh.getRoble()>=1500 && !GHEntrenaAguilas){
+                                    Edificaciones AGUI = new EdifEntrenamientoAguilas();
+                                    System.out.println(gh.getFibra_Seda());
+                                    System.out.println(gh.getPlata());
+                                    System.out.println(gh.getRoble());//solo para ver si entra                       
+                                    int actualFibra = gh.getFibra_Seda();
+                                    int costeFibra = actualFibra - 400;
+                                    int actualPlata = gh.getPlata();
+                                    int costePlata = actualPlata - 2150;
+                                    int actualRoble = gh.getRoble();
+                                    int costeRoble = actualRoble - 1500;
+                                    gh.getEdificacionesGueHuman().add(AGUI);
+                                    GHEntrenaAguilas = true;
+                                    System.out.println(gh.getEdificacionesGueHuman().size());
+                                    gh.setFibra_Seda(costeFibra);
+                                    gh.setPlata(costePlata);
+                                    gh.setRoble(costeRoble);                                    
+                                    System.out.println(gh.getPlata());//solo para ver si entra
+                                    System.out.println(gh.getFibra_Seda());
+                                    System.out.println(gh.getRoble());                                   
+                                }else{
+                                    System.out.println("Es probable que no posee la cantidad suficiente de recursos para comprar una o ya posee un objeto de este tipo.");
+                                }
                                 break;
                             case 6:
-                                System.out.println("Instancio y creo el objeto 6 según raza, lo agrego al arreglo..."); //Con o sin break, regreso al menú principal...
+                                System.out.println("Edif Entrenamiento de Jabalíes..."); //Con o sin break, regreso al menú principal...
+                                if(gh.getFibra_Seda()>=350 && gh.getPlata()>=2000 && gh.getRoble()>=1200 && !GHEntrenaJabalis){
+                                    Edificaciones JABA = new EdifEntrenamientoJabalis();
+                                    System.out.println(gh.getFibra_Seda());
+                                    System.out.println(gh.getPlata());
+                                    System.out.println(gh.getRoble());//solo para ver si entra                       
+                                    int actualFibra = gh.getFibra_Seda();
+                                    int costeFibra = actualFibra - 350;
+                                    int actualPlata = gh.getPlata();
+                                    int costePlata = actualPlata - 2000;
+                                    int actualRoble = gh.getRoble();
+                                    int costeRoble = actualRoble - 1200;
+                                    gh.getEdificacionesGueHuman().add(JABA);
+                                    GHEntrenaAguilas = true;
+                                    System.out.println(gh.getEdificacionesGueHuman().size());
+                                    gh.setFibra_Seda(costeFibra);
+                                    gh.setPlata(costePlata);
+                                    gh.setRoble(costeRoble);                                    
+                                    System.out.println(gh.getPlata());//solo para ver si entra
+                                    System.out.println(gh.getFibra_Seda());
+                                    System.out.println(gh.getRoble());                                   
+                                }else{
+                                    System.out.println("Es probable que no posee la cantidad suficiente de recursos para comprar una o ya posee un objeto de este tipo.");
+                                }
                                 break;
                             default:
                                 System.out.println("Ingrese una opción válida");

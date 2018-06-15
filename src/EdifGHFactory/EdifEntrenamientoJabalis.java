@@ -37,7 +37,7 @@ public class EdifEntrenamientoJabalis implements Edificaciones {
 
     @Override
     public void GenerarRecurso() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Aún no muestro mayor cosa");
     }
 
 }
