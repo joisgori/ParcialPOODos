@@ -327,7 +327,7 @@ public class Principal {
                             break;
                     }
                     for (int i = 0; i < orcos.getEdificacionesO().size(); i++) {
-                        System.out.println(orcos.getEdificacionesO().get(i).GenerarRecurso());
+                        orcos.getEdificacionesO().get(i).GenerarRecurso();
                     }
                 } else if (opcionRazaJ1 == 2) {
                     switch (opcionSubMenuTurnos) {
@@ -718,7 +718,7 @@ public class Principal {
                             break;
                     }
                     for (int i = 0; i < orcos.getEdificacionesO().size(); i++) {
-                        System.out.println(orcos.getEdificacionesO().get(i).GenerarRecurso());
+                        orcos.getEdificacionesO().get(i).GenerarRecurso();
                     }
 
                 } else if (opcionRazaJ2 == 2) {

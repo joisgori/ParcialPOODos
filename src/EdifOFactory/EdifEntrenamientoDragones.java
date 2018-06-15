@@ -5,15 +5,23 @@
  */
 package EdifOFactory;
 
+import fabricaAbstractaOrcos.CentroMandoOrcos;
+
 /**
  *
  * @author Josué González <00034715@uca.edu.sv>
  */
 public class EdifEntrenamientoDragones implements EdificacionesO {
+     CentroMandoOrcos orcos = new CentroMandoOrcos();
+    private int Temporal, vidaEd = 10, faseInicial;
+
+    public EdifEntrenamientoDragones() {
+    }
+    
 
     @Override
-    public int GenerarRecurso() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void GenerarRecurso() {
+        System.out.println("Aún no hay nada...");
     }
 
     @Override
