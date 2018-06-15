@@ -326,6 +326,9 @@ public class Principal {
                             System.out.println("Escoja opción válida");
                             break;
                     }
+                    for (int i = 0; i < orcos.getEdificacionesO().size(); i++) {
+                        System.out.println(orcos.getEdificacionesO().get(i).GenerarRecurso());
+                    }
                 } else if (opcionRazaJ1 == 2) {
                     switch (opcionSubMenuTurnos) {
                         case 1:
@@ -526,18 +529,18 @@ public class Principal {
                             System.out.println("Escoja opción válida");
                             break;
                     }
+                    //Acá puedo mostrar el arreglo de prueba de edificaciones:
+                    for (int i = 0; i < gh.getEdificacionesGueHuman().size(); i++) {
+                        gh.getEdificacionesGueHuman().get(i).GenerarRecurso();
+                    }
 
-                } else if (opcionRazaJ1 == 4) {
+                } else if (opcionRazaJ1 == 3) {
                     System.out.println("Acá irá el tercer case... ESQUELETOS");
 
                 } else {
                     System.out.println("Debió escojer una opción válida...");
-                }
-                //Acá puedo mostrar el arreglo de prueba de edificaciones:
-                for (int i = 0; i < orcos.getEdificacionesO().size(); i++) {
-                    System.out.println(orcos.getEdificacionesO().get(i).GenerarRecurso());
-                    // System.out.println(orcos.flag);
-                }
+                }                //Acá puedo mostrar el arreglo de prueba de edificaciones:
+
             }
 
             //TURNO DE JUGADOR DOS;
@@ -713,6 +716,9 @@ public class Principal {
                         default:
                             System.out.println("Escoja opción válida");
                             break;
+                    }
+                    for (int i = 0; i < orcos.getEdificacionesO().size(); i++) {
+                        System.out.println(orcos.getEdificacionesO().get(i).GenerarRecurso());
                     }
 
                 } else if (opcionRazaJ2 == 2) {
@@ -915,17 +921,15 @@ public class Principal {
                             System.out.println("Escoja opción válida");
                             break;
                     }
-
+                    //Acá puedo mostrar el arreglo de prueba de edificaciones:
+                    for (int i = 0; i < gh.getEdificacionesGueHuman().size(); i++) {
+                        gh.getEdificacionesGueHuman().get(i).GenerarRecurso();
+                    }
                 } else if (opcionRazaJ2 == 3) {
                     System.out.println("Acá irá el tercer case... ESQUELETOS");
                 } else {
                     System.out.println("Escoja una opción válida...");
                 }
-                //Acá puedo mostrar el arreglo de prueba de edificaciones:
-                for (int i = 0; i < gh.getEdificacionesGueHuman().size(); i++) {
-                    gh.getEdificacionesGueHuman().get(i).GenerarRecurso();
-                }
-
             }
 
             Fase();
