@@ -310,11 +310,12 @@ public class Principal {
                                     System.out.println("Escoja una opción válida");
                                     break;
                             }
-                            MGH.Danio(MO.Atacar());
-                            System.out.println(MGH.getSalud());
+
                             break;
                         case 3:
                             System.out.println("Atacar\nSeleccione a quién desea atacar..."); //Puedo poner afuera de todo esto el muestreo de los recursos actuales...
+                            MGH.Danio(MO.Atacar());
+                            System.out.println(MGH.getSalud());
                             break;
                         case 4:
                             System.out.println("Verificar cantidad de recursos y mejorar el CENTRO DE MANDO");
@@ -505,11 +506,11 @@ public class Principal {
                                     System.out.println("Escoja una opción válida");
                                     break;
                             }
-                            MGH.Danio(MO.Atacar());
-                            System.out.println(MGH.getSalud());
                             break;
                         case 3:
                             System.out.println("Atacar\nSeleccione a quién desea atacar..."); //Puedo poner afuera de todo esto el muestreo de los recursos actuales...
+                            MO.Danio(MGH.Atacar());
+                            System.out.println(MO.getSalud());
                             break;
                         case 4:
                             System.out.println("Verificar cantidad de recursos y mejorar el CENTRO DE MANDO");
@@ -701,11 +702,11 @@ public class Principal {
                                     System.out.println("Escoja una opción válida");
                                     break;
                             }
-                            MGH.Danio(MO.Atacar());
-                            System.out.println(MGH.getSalud());
                             break;
                         case 3:
                             System.out.println("Atacar\nSeleccione a quién desea atacar..."); //Puedo poner afuera de todo esto el muestreo de los recursos actuales...
+                            MGH.Danio(MO.Atacar());
+                            System.out.println(MGH.getSalud());
                             break;
                         case 4:
                             System.out.println("Verificar cantidad de recursos y mejorar el CENTRO DE MANDO");
@@ -897,11 +898,11 @@ public class Principal {
                                     System.out.println("Escoja una opción válida");
                                     break;
                             }
-                            MGH.Danio(MO.Atacar());
-                            System.out.println(MGH.getSalud());
                             break;
                         case 3:
                             System.out.println("Atacar\nSeleccione a quién desea atacar..."); //Puedo poner afuera de todo esto el muestreo de los recursos actuales...
+                            MO.Danio(MGH.Atacar());
+                            System.out.println(MO.getSalud());
                             break;
                         case 4:
                             System.out.println("Verificar cantidad de recursos y mejorar el CENTRO DE MANDO");
